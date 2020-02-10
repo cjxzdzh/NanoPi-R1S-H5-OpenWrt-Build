@@ -1,4 +1,5 @@
 rm -f mk-friendlywrt.sh
+rm -f build.sh
 wget https://raw.githubusercontent.com/cjxzdzh/-NanoPi-R1S-H5-Build/master/mk-friendlywrt.sh
 cd ..
 sudo ./build.sh nanopi_r1s.mk
