@@ -36,8 +36,7 @@ if [ ! -d dl ]; then
 fi
 make download -j$(nproc)
 
-USING_DATE=$(date +%Y%m%d)
-echo "${USING_DATE}" > ./package/base-files/files/etc/rom-version
+echo "cjxzdzh" > ./package/base-files/files/etc/rom-version
 
 make FORCE_UNSAFE_CONFIGURE=1 -j1 V=s
 RET=$?
