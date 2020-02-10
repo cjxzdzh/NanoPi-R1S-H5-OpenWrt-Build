@@ -42,9 +42,9 @@ cd ..
 cd scripts
 #替换build.sh和mk-friendlywrt.sh，主要避免一些奇怪的问题，略微修改了一点。
 rm -f build.sh
-wget https://raw.githubusercontent.com/cjxzdzh/-NanoPi-R1S-H5-Build/master/build.sh
+wget https://raw.githubusercontent.com/cjxzdzh/NanoPi-R1S-H5-OpenWrt-Build/master/build.sh
 rm -f mk-friendlywrt.sh
-wget https://raw.githubusercontent.com/cjxzdzh/-NanoPi-R1S-H5-Build/master/mk-friendlywrt.sh
+wget https://raw.githubusercontent.com/cjxzdzh/NanoPi-R1S-H5-OpenWrt-Build/master/mk-friendlywrt.sh
 sudo chmod 777 build.sh
 sudo chmod 777 mk-friendlywrt.sh
 cd ..
