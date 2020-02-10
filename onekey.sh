@@ -6,8 +6,15 @@ sudo cp repo/repo /usr/bin/
 mkdir friendlywrt-h5
 cd friendlywrt-h5
 repo init -u https://github.com/friendlyarm/friendlywrt_manifests -b master -m h5.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
-#源码内有自定义h5.xml，暂时先不使用，看看情况
+#使用skytotwo的h5.xml
+cd .repo/manifests
+rm -f ./h5.xml
+wget https://raw.githubusercontent.com/skytotwo/NanoPi-R1S-Build-By-Actions/master/source_xml/h5_19.07.xml
+cp h5_19.07.xml h5.xml
+rm -rf ./h5_19.07.xml
 repo sync -c  --no-clone-bundle
+cd ..
+cd ..
 git clone https://github.com/coolsnowwolf/lede
 cd friendlywrt
 cp -r ../lede/package/lean package/
@@ -21,22 +28,14 @@ cd include
 #这里把目标mk里的dnsmasq替换成了dnsmasq-full default-settings luci。
 sed -i 's/dnsmasq /dnsmasq-full default-settings luci /' target.mk
 cd ..
-#friendlyarm里的scripts其实包含了download、update和、install。这里先保留skytotwo写法
-./scripts/feeds update -a
-./scripts/feeds install -a
 rm -f ./.config*
 #使用skytotwo的r1s-h5-config
 wget https://raw.githubusercontent.com/skytotwo/NanoPi-R1S-Build-By-Actions/master/r1s-h5-config
 cp r1s-h5-config .config
-make download -j8
-find dl -size -1024c -exec ls -l {} \;
-find dl -size -1024c -exec rm -f {} \;
 cd ..
 cd scripts
 rm -f mk-friendlywrt.sh
-git clone https://github.com/cjxzdzh/-NanoPi-R1S-H5-Build
-cp ./-NanoPi-R1S-H5-Build/mk-friendlywrt.sh mk-friendlywrt.sh
-cd ..
+wget https://raw.githubusercontent.com/cjxzdzh/-NanoPi-R1S-H5-Build/master/mk-friendlywrt.sh
 cd ..
 ./build.sh nanopi_r1s.mk
 cd ..
