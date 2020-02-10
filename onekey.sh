@@ -32,6 +32,12 @@ make download -j8
 find dl -size -1024c -exec ls -l {} \;
 find dl -size -1024c -exec rm -f {} \;
 cd ..
+cd scripts
+rm -f mk-friendlywrt.sh
+git clone https://github.com/cjxzdzh/-NanoPi-R1S-H5-Build
+cp ./-NanoPi-R1S-H5-Build/mk-friendlywrt.sh mk-friendlywrt.sh
+cd ..
+cd ..
 ./build.sh nanopi_r1s.mk
 cd ..
 find friendlywrt-h5/out/ -name "FriendlyWrt_*img*" | xargs -i zip -r {}.zip {}
