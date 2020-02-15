@@ -8,6 +8,7 @@
 
 4.系统需要有25G以上的空间预留给编译
 
+5.已包含了lede的各类功能如ssrplus+等
 
 wget -O - https://raw.githubusercontent.com/cjxzdzh/NanoPi-R1S-H5-OpenWrt-Build/master/onekey.sh | bash
 
