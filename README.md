@@ -14,12 +14,17 @@ wget -O - https://raw.githubusercontent.com/cjxzdzh/NanoPi-R1S-H5-OpenWrt-Build/
 编译成功后，Img文件在./friendlywrt-h5/out下,拷贝到windows下，使用Win32DiskImager之类的软件将文件写入TF卡内，插回设备，设备上电即可，默认地址192.168.2.1,账号root，密码password。
 
 首次编译成功后，可以执行命令
+
 cd ./friendlywrt-h5/friendlywrt/
+
 make menuconfig
+
 修改编译功能，如果增加了功能，需要将target images下的root filesystem partition size改成更大的数值（如512）。
-修改后save。
-然后执行
+
+修改后save，然后执行
+
 cd ../..
+
 最后重编译即可，运行
 
 wget -O - https://raw.githubusercontent.com/cjxzdzh/NanoPi-R1S-H5-OpenWrt-Build/master/rebuild.sh | bash
